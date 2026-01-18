@@ -1,0 +1,77 @@
+Auth Public
+
+| Method | Endpoint      | Fungsi                     |
+| ------ | ------------- | -------------------------- |
+| POST   | `/api/login`  | Login user                 |
+| POST   | `/api/logout` | Logout user (revoke token) |
+| GET    | `/api/me`     | Data user login            |
+
+
+Semua User
+
+| Method | Endpoint               | Fungsi         |
+| ------ | ---------------------- | -------------- |
+| GET    | `/api/profile`         | Lihat profil   |
+| PUT    | `/api/profile`         | Update profil  |
+| PUT    | `/api/change-password` | Ganti password |
+
+Internship (admin)
+
+| Method | Endpoint               | Role  |
+| ------ | ---------------------- | ----- |
+| GET    | `/api/internship`      | Semua |
+| GET    | `/api/internship/{id}` | Semua |
+| POST   | `/api/internship`      | Admin |
+| PUT    | `/api/internship/{id}` | Admin |
+| DELETE | `/api/internship/{id}` | Admin |
+
+Intern (mahasiswa magang)
+
+| Method | Endpoint                | Fungsi                     |
+| ------ | ----------------------- | -------------------------- |
+| GET    | `/api/my-internship`    | Detail data magang         |
+| GET    | `/api/tasks`            | List tugas dari supervisor |
+| POST   | `/api/daily-logs`       | Tambah log harian          |
+| GET    | `/api/daily-logs`       | Lihat log harian sendiri   |
+| PUT    | `/api/daily-logs/{id}`  | Update log harian          |
+| POST   | `/api/bug-reports`      | Tambah laporan bug         |
+| GET    | `/api/bug-reports`      | List bug report sendiri    |
+| PUT    | `/api/bug-reports/{id}` | Update bug report          |
+| DELETE | `/api/bug-reports/{id}` | Hapus bug report           |
+| POST   | `/api/meetings`         | Tambah hasil meeting       |
+| GET    | `/api/meetings`         | List meeting               |
+| PUT    | `/api/meetings/{id}`    | Update meeting             |
+| DELETE | `/api/meetings/{id}`    | Hapus meeting              |
+
+
+Supervisor
+
+| Method | Endpoint                                 | Fungsi                |
+| ------ | ---------------------------------------- | --------------------- |
+| GET    | `/api/interns`                           | List mahasiswa magang |
+| POST   | `/api/tasks`                             | Tambah tugas          |
+| PUT    | `/api/tasks/{id}`                        | Update tugas          |
+| DELETE | `/api/tasks/{id}`                        | Hapus tugas           |
+| GET    | `/api/intern/{id}/logs`                  | Lihat log intern      |
+| POST   | `/api/intern/{id}/logs/{log_id}/confirm` | Konfirmasi log harian |
+| POST   | `/api/feedback`                          | Tambah feedback       |
+| PUT    | `/api/feedback/{id}`                     | Update feedback       |
+
+
+Dospem
+
+| Method | Endpoint                    | Fungsi        |
+| ------ | --------------------------- | ------------- |
+| GET    | `/api/intern/{id}/report`   | Laporan akhir |
+| GET    | `/api/intern/{id}/logs`     | Logbook       |
+| POST   | `/api/intern/{id}/approval` | Persetujuan   |
+
+Admin
+
+| Method | Endpoint          | Fungsi      |
+| ------ | ----------------- | ----------- |
+| GET    | `/api/users`      | Semua user  |
+| POST   | `/api/users`      | Tambah user |
+| PUT    | `/api/users/{id}` | Edit user   |
+| DELETE | `/api/users/{id}` | Hapus user  |
+| GET    | `/api/roles`      | List role   |

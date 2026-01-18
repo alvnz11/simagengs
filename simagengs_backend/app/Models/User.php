@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Role;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -49,5 +50,20 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class, 'user_roles');
+    }
+
+    public function internshipsAsIntern()
+    {
+        return $this->hasMany(Internship::class, 'intern_id');
+    }
+
+    public function internshipsAsSupervisor()
+    {
+        return $this->hasMany(Internship::class, 'supervisor_id');
+    }
+
+    public function internshipsAsDosen()
+    {
+        return $this->hasMany(Internship::class, 'dosen_id');
     }
 }

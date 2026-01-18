@@ -31,4 +31,9 @@ class Internship extends Model
     {
         return $this->belongsTo(User::class, 'dosen_id');
     }
+
+    public function dailyLogs()
+    {
+        return $this->hasMany(DailyLog::class);
+    }
 }
