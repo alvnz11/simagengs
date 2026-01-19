@@ -34,10 +34,10 @@ Intern (mahasiswa magang)
 | POST   | `/api/daily-logs`       | Tambah log harian          |
 | GET    | `/api/daily-logs`       | Lihat log harian sendiri   |
 | PUT    | `/api/daily-logs/{id}`  | Update log harian          |
-| POST   | `/api/bug-reports`      | Tambah laporan bug         |
-| GET    | `/api/bug-reports`      | List bug report sendiri    |
-| PUT    | `/api/bug-reports/{id}` | Update bug report          |
-| DELETE | `/api/bug-reports/{id}` | Hapus bug report           |
+| POST   | `/api/bug`              | Tambah laporan bug         |
+| GET    | `/api/bug`              | List bug report sendiri    |
+| PUT    | `/api/bug/{id}`         | Update bug report          |
+| DELETE | `/api/bug/{id}`         | Hapus bug report           |
 | POST   | `/api/meetings`         | Tambah hasil meeting       |
 | GET    | `/api/meetings`         | List meeting               |
 | PUT    | `/api/meetings/{id}`    | Update meeting             |

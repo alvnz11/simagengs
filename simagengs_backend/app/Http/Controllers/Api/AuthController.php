@@ -16,7 +16,7 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->with('roles')->first();
 
         if(!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
@@ -44,7 +44,7 @@ class AuthController extends Controller
     public function me(Request $request) {
         return response()->json([
             'message' => 'Data retrieved successfully',
-            'data' =>$request->user()
+            'data' =>$request->user()->load('roles')
         ]);
     }
 }
