@@ -27,7 +27,7 @@ class Internship extends Model
         return $this->belongsTo(User::class, 'supervisor_id');
     }
 
-    public function dosen()
+    public function dospem()
     {
         return $this->belongsTo(User::class, 'dosen_id');
     }

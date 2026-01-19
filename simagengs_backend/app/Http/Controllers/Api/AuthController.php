@@ -27,6 +27,7 @@ class AuthController extends Controller
         $token = $user->createToken('access-token')->accessToken;
 
         return response()->json([
+            'message' => 'Login Success',
             'token' => $token,
             'user' => $user
         ]);
@@ -41,6 +42,9 @@ class AuthController extends Controller
     }
 
     public function me(Request $request) {
-        return response()->json($request->user());
+        return response()->json([
+            'message' => 'Data retrieved successfully',
+            'data' =>$request->user()
+        ]);
     }
 }

@@ -27,10 +27,11 @@ return new class extends Migration
                 'Rejected'
             ])->default('Draft');
             $table->foreignId('approved_by')
+                ->nullable()
                 ->constrained('users')
                 ->cascadeOnDelete();
-            $table->date('approved_at');
-            $table->text('supervisor_comment');
+            $table->timestamp('approved_at')->nullable();
+            $table->text('supervisor_comment')->nullable();
             $table->timestamps();
         });
     }

@@ -10,7 +10,10 @@ class ProfileController extends Controller
 {
     public function show(Request $request)
     {
-        return response()->json($request->user()->load('roles'));
+        return response()->json([
+            'message' => 'Profile retrieved successfully',
+            'data' => $request->user()->load('roles')
+        ]);
     }
 
     public function update(Request $request)  {
@@ -24,7 +27,7 @@ class ProfileController extends Controller
 
         return response()->json([
             'message' => 'Profile updated successfully',
-            'user' => $user
+            'data' => $user
         ]);
     }
 
