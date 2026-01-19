@@ -14,14 +14,14 @@ export default function AdminLayout({ children }) {
   };
 
   const menuItems = [
-    { path: '/dashboard', icon: '🏠', label: 'Dashboard' },
-    { path: '/users', icon: '👥', label: 'Manage Users' },
-    { path: '/internships', icon: '🎓', label: 'Internships' },
-    { path: '/tasks', icon: '✅', label: 'All Tasks' },
-    { path: '/bugs', icon: '🐛', label: 'Bug Reports' },
-    { path: '/meetings', icon: '📅', label: 'Meetings' },
-    { path: '/reports', icon: '📊', label: 'Reports' },
-    { path: '/profile', icon: '👤', label: 'Profile' },
+    { path: '/dashboard', icon: '▣', label: 'Dashboard' },
+    { path: '/users', icon: '◈', label: 'Manage Users' },
+    { path: '/internships', icon: '◐', label: 'Internships' },
+    { path: '/tasks', icon: '☑', label: 'All Tasks' },
+    { path: '/bugs', icon: '⚠', label: 'Bug Reports' },
+    { path: '/meetings', icon: '◷', label: 'Meetings' },
+    { path: '/reports', icon: '▤', label: 'Reports' },
+    { path: '/profile', icon: '◉', label: 'Profile' },
   ];
 
   return (
@@ -35,7 +35,7 @@ export default function AdminLayout({ children }) {
       />
 
       {/* Main Content */}
-      <main className={`transition-all duration-300 ${sidebarOpen ? 'ml-64' : 'ml-20'}`}>
+      <main className="ml-72">
         <div className="p-8">
           {children}
         </div>

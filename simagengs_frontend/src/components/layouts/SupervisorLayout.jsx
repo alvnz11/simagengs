@@ -14,13 +14,13 @@ export default function SupervisorLayout({ children }) {
   };
 
   const menuItems = [
-    { path: '/dashboard', icon: '🏠', label: 'Dashboard' },
-    { path: '/my-interns', icon: '👨‍🎓', label: 'My Interns' },
-    { path: '/tasks', icon: '✅', label: 'Assign Tasks' },
-    { path: '/daily-logs', icon: '📝', label: 'Review Logs' },
-    { path: '/meetings', icon: '📅', label: 'Meetings' },
-    { path: '/feedback', icon: '💬', label: 'Feedback' },
-    { path: '/profile', icon: '👤', label: 'Profile' },
+    { path: '/dashboard', icon: '▣', label: 'Dashboard' },
+    { path: '/my-interns', icon: '◈', label: 'My Interns' },
+    { path: '/tasks', icon: '☑', label: 'Assign Tasks' },
+    { path: '/daily-logs', icon: '⚏', label: 'Review Logs' },
+    { path: '/meetings', icon: '◷', label: 'Meetings' },
+    { path: '/feedback', icon: '◐', label: 'Feedback' },
+    { path: '/profile', icon: '◉', label: 'Profile' },
   ];
 
   return (
@@ -34,7 +34,7 @@ export default function SupervisorLayout({ children }) {
       />
 
       {/* Main Content */}
-      <main className={`transition-all duration-300 ${sidebarOpen ? 'ml-64' : 'ml-20'}`}>
+      <main className="ml-72">
         <div className="p-8">
           {children}
         </div>

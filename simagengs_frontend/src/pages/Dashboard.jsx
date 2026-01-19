@@ -6,17 +6,17 @@ export default function Dashboard() {
   const { user } = useAuth();
 
   const stats = [
-    { icon: '📝', label: 'Daily Logs', value: '0', color: 'from-blue-500 to-blue-600', link: '/daily-logs' },
-    { icon: '✅', label: 'Tasks', value: '0', color: 'from-green-500 to-green-600', link: '/tasks' },
-    { icon: '🐛', label: 'Bugs', value: '0', color: 'from-red-500 to-red-600', link: '/bugs' },
-    { icon: '📅', label: 'Meetings', value: '0', color: 'from-purple-500 to-purple-600', link: '/meetings' },
+    { icon: '⚏', label: 'Daily Logs', value: '0', color: 'from-blue-500 to-blue-600', link: '/daily-logs' },
+    { icon: '◈', label: 'Tasks', value: '0', color: 'from-green-500 to-green-600', link: '/tasks' },
+    { icon: '⚠', label: 'Bugs', value: '0', color: 'from-red-500 to-red-600', link: '/bugs' },
+    { icon: '◷', label: 'Meetings', value: '0', color: 'from-purple-500 to-purple-600', link: '/meetings' },
   ];
 
   const quickActions = [
-    { icon: '➕', label: 'Add Daily Log', color: 'from-blue-500 to-blue-600', link: '/daily-logs' },
-    { icon: '📋', label: 'View Tasks', color: 'from-green-500 to-green-600', link: '/tasks' },
-    { icon: '🐞', label: 'Report Bug', color: 'from-red-500 to-red-600', link: '/bugs' },
-    { icon: '📝', label: 'Add Meeting', color: 'from-purple-500 to-purple-600', link: '/meetings' },
+    { icon: '⚏', label: 'Add Daily Log', color: 'from-blue-500 to-blue-600', link: '/daily-logs' },
+    { icon: '◈', label: 'View Tasks', color: 'from-green-500 to-green-600', link: '/tasks' },
+    { icon: '⚠', label: 'Report Bug', color: 'from-red-500 to-red-600', link: '/bugs' },
+    { icon: '◷', label: 'Add Meeting', color: 'from-purple-500 to-purple-600', link: '/meetings' },
   ];
 
   return (
@@ -25,10 +25,10 @@ export default function Dashboard() {
       <div className="bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl p-8 mb-8 shadow-xl">
         <div className="flex items-center justify-between">
           <div className="text-white">
-            <h2 className="text-3xl font-bold mb-2">Welcome back, {user?.name}! 👋</h2>
+            <h2 className="text-3xl font-bold mb-2">Welcome back, {user?.name}!</h2>
             <p className="text-primary-100">Here's what's happening with your internship today.</p>
           </div>
-          <div className="hidden md:block text-6xl">🚀</div>
+          <div className="hidden md:block text-6xl"></div>
         </div>
       </div>
 

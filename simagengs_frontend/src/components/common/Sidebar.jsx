@@ -4,73 +4,44 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, menuItems, onLogo
   const location = useLocation();
 
   return (
-    <aside className={`fixed top-0 left-0 h-full bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white transition-all duration-300 z-50 ${sidebarOpen ? 'w-64' : 'w-20'} shadow-2xl`}>
-      {/* Logo Section */}
-      <div className="p-6 border-b border-gray-700 flex items-center justify-between">
-        {sidebarOpen ? (
-          <div className="flex items-center gap-3">
-            <span className="text-3xl">📚</span>
-            <span className="text-xl font-bold bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent">
-              SIMAGENGS
-            </span>
-          </div>
-        ) : (
-          <span className="text-3xl">📚</span>
-        )}
-        <button 
-          onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
-        >
-          {sidebarOpen ? '◀' : '▶'}
-        </button>
-      </div>
-
-      {/* User Info */}
-      {sidebarOpen && (
-        <div className="p-6 border-b border-gray-700">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
-              {user?.name?.charAt(0).toUpperCase()}
-            </div>
-            <div>
-              <p className="font-semibold text-white">{user?.name}</p>
-              <p className="text-sm text-gray-400 capitalize">{user?.role}</p>
-            </div>
-          </div>
-        </div>
-      )}
-
+    <aside className="fixed top-6 left-6 bottom-6 w-64 bg-white/90 backdrop-blur-md text-gray-700 z-50 rounded-2xl shadow-2xl border border-gray-200">
       {/* Navigation Menu */}
-      <nav className="p-4 flex-1 overflow-y-auto">
-        {menuItems.map((item) => {
-          const isActive = location.pathname === item.path;
-          return (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`flex items-center gap-4 px-4 py-3 rounded-xl mb-2 transition-all ${
-                isActive 
-                  ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg shadow-primary-500/50' 
-                  : 'text-gray-300 hover:bg-gray-800 hover:text-white'
-              }`}
-            >
-              <span className="text-2xl">{item.icon}</span>
-              {sidebarOpen && <span className="font-medium">{item.label}</span>}
-            </Link>
-          );
-        })}
-      </nav>
+      <nav className="p-4 h-full flex flex-col">
+        <div className="flex-1 space-y-1 overflow-y-auto">
+          {menuItems.map((item) => {
+            const isActive = location.pathname === item.path;
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
+                  isActive 
+                    ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg' 
+                    : 'text-gray-600 hover:bg-gray-100 hover:text-primary-600'
+                }`}
+              >
+                <span className="text-xl">{item.icon}</span>
+                <span className="font-medium text-sm">{item.label}</span>
+              </Link>
+            );
+          })}
+        </div>
 
-      {/* Logout Button */}
-      <div className="p-4 border-t border-gray-700">
-        <button
-          onClick={onLogout}
-          className="w-full flex items-center gap-4 px-4 py-3 rounded-xl text-gray-300 hover:bg-red-600 hover:text-white transition-all"
-        >
-          <span className="text-2xl">🚪</span>
-          {sidebarOpen && <span className="font-medium">Logout</span>}
-        </button>
-      </div>
+        {/* User Info & Logout */}
+        <div className="pt-4 border-t border-gray-200 space-y-2">
+          <div className="px-4 py-2 text-xs text-gray-500">
+            <div className="font-semibold text-gray-700 truncate">{user?.name}</div>
+            <div className="capitalize text-gray-500">{user?.role}</div>
+          </div>
+          <button
+            onClick={onLogout}
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-red-50 hover:text-red-600 transition-all"
+          >
+            <span className="text-xl">⎋</span>
+            <span className="font-medium text-sm">Logout</span>
+          </button>
+        </div>
+      </nav>
     </aside>
   );
 }

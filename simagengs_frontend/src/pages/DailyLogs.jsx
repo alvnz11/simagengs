@@ -9,8 +9,9 @@ export default function DailyLogs() {
   const [editingLog, setEditingLog] = useState(null);
   const [formData, setFormData] = useState({
     date: new Date().toISOString().split('T')[0],
+    check_in_time: '',
+    check_out_time: '',
     activity: '',
-    description: '',
   });
 
   useEffect(() => {
@@ -53,8 +54,9 @@ export default function DailyLogs() {
     setEditingLog(log);
     setFormData({
       date: log.date,
+      check_in_time: log.check_in_time || '',
+      check_out_time: log.check_out_time || '',
       activity: log.activity,
-      description: log.description,
     });
     setShowModal(true);
   };
@@ -62,8 +64,9 @@ export default function DailyLogs() {
   const resetForm = () => {
     setFormData({
       date: new Date().toISOString().split('T')[0],
+      check_in_time: '',
+      check_out_time: '',
       activity: '',
-      description: '',
     });
     setEditingLog(null);
   };
@@ -95,7 +98,7 @@ export default function DailyLogs() {
         </div>
       ) : logs.length === 0 ? (
         <div className="bg-white rounded-2xl p-12 text-center shadow-xl">
-          <div className="text-6xl mb-4">📝</div>
+          <div className="text-6xl mb-4">⚏</div>
           <h3 className="text-2xl font-bold text-gray-900 mb-2">No logs yet</h3>
           <p className="text-gray-600 mb-6">Start documenting your daily activities</p>
           <button
@@ -116,7 +119,11 @@ export default function DailyLogs() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900">{log.activity}</h3>
-                    <p className="text-sm text-gray-500">{new Date(log.date).toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                    <p className="text-sm text-gray-500 mb-1">{new Date(log.date).toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                    <div className="flex items-center gap-4 text-sm text-gray-600">
+                      {log.check_in_time && <span>⏱ In: {log.check_in_time}</span>}
+                      {log.check_out_time && <span>⏱ Out: {log.check_out_time}</span>}
+                    </div>
                   </div>
                 </div>
                 <div className="flex gap-2">
@@ -133,7 +140,6 @@ export default function DailyLogs() {
                   </span>
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed">{log.description}</p>
             </div>
           ))}
         </div>
@@ -172,30 +178,44 @@ export default function DailyLogs() {
                     required
                   />
                 </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Check In Time
+                    </label>
+                    <input
+                      type="time"
+                      step="1"
+                      value={formData.check_in_time}
+                      onChange={(e) => setFormData({ ...formData, check_in_time: e.target.value })}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100"
+                      required
+                    />
+                  </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Activity Title
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.activity}
-                    onChange={(e) => setFormData({ ...formData, activity: e.target.value })}
-                    placeholder="e.g., Frontend Development, API Integration"
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100"
-                    required
-                  />
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Check Out Time
+                    </label>
+                    <input
+                      type="time"
+                      step="1"
+                      value={formData.check_out_time}
+                      onChange={(e) => setFormData({ ...formData, check_out_time: e.target.value })}
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100"
+                      required
+                    />
+                  </div>
                 </div>
-
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Description
+                    Activity
                   </label>
                   <textarea
-                    value={formData.description}
-                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                    placeholder="Describe what you did today..."
-                    rows="5"
+                    value={formData.activity}
+                    onChange={(e) => setFormData({ ...formData, activity: e.target.value })}
+                    placeholder="What did you work on today?"
+                    rows="4"
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100"
                     required
                   ></textarea>

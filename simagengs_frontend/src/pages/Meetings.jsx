@@ -108,7 +108,7 @@ export default function Meetings() {
         </div>
       ) : meetings.length === 0 ? (
         <div className="bg-white rounded-2xl p-12 text-center shadow-xl">
-          <div className="text-6xl mb-4">📅</div>
+          <div className="text-6xl mb-4">◷</div>
           <h3 className="text-2xl font-bold text-gray-900 mb-2">No meetings yet</h3>
           <p className="text-gray-600 mb-6">Start documenting your meetings</p>
           <button
@@ -131,11 +131,11 @@ export default function Meetings() {
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-gray-900 mb-1">{meeting.title}</h3>
                     <p className="text-sm text-gray-500 mb-2">
-                      📅 {new Date(meeting.date).toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                      ◷ {new Date(meeting.date).toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                     </p>
                     {meeting.participants && (
                       <p className="text-sm text-gray-600">
-                        <span className="font-semibold">👥 Participants:</span> {meeting.participants}
+                        <span className="font-semibold">◈ Participants:</span> {meeting.participants}
                       </p>
                     )}
                   </div>

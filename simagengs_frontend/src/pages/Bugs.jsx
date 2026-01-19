@@ -124,22 +124,22 @@ export default function Bugs() {
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         <div className="bg-white rounded-xl p-4 shadow-lg">
-          <div className="text-2xl mb-1">🐛</div>
+          <div className="text-2xl mb-1">⚠</div>
           <div className="text-2xl font-bold text-gray-900">{bugs.length}</div>
           <div className="text-sm text-gray-600">Total Bugs</div>
         </div>
         <div className="bg-white rounded-xl p-4 shadow-lg">
-          <div className="text-2xl mb-1">⏳</div>
+          <div className="text-2xl mb-1">⧗</div>
           <div className="text-2xl font-bold text-yellow-600">{bugs.filter(b => b.status === 'open').length}</div>
           <div className="text-sm text-gray-600">Open</div>
         </div>
         <div className="bg-white rounded-xl p-4 shadow-lg">
-          <div className="text-2xl mb-1">🔄</div>
+          <div className="text-2xl mb-1">◐</div>
           <div className="text-2xl font-bold text-blue-600">{bugs.filter(b => b.status === 'in-progress').length}</div>
           <div className="text-sm text-gray-600">In Progress</div>
         </div>
         <div className="bg-white rounded-xl p-4 shadow-lg">
-          <div className="text-2xl mb-1">✓</div>
+          <div className="text-2xl mb-1">◉</div>
           <div className="text-2xl font-bold text-green-600">{bugs.filter(b => b.status === 'resolved').length}</div>
           <div className="text-sm text-gray-600">Resolved</div>
         </div>
@@ -151,7 +151,7 @@ export default function Bugs() {
         </div>
       ) : bugs.length === 0 ? (
         <div className="bg-white rounded-2xl p-12 text-center shadow-xl">
-          <div className="text-6xl mb-4">🐛</div>
+          <div className="text-6xl mb-4">⚠</div>
           <h3 className="text-2xl font-bold text-gray-900 mb-2">No bugs reported</h3>
           <p className="text-gray-600 mb-6">Start tracking bugs you encounter</p>
           <button
@@ -175,7 +175,7 @@ export default function Bugs() {
                   </div>
                   <p className="text-gray-600 mb-3">{bug.description}</p>
                   <div className="flex items-center gap-4 text-sm text-gray-500">
-                    <span>📅 {new Date(bug.created_at).toLocaleDateString('id-ID')}</span>
+                    <span>◷ {new Date(bug.created_at).toLocaleDateString('id-ID')}</span>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2 ml-4">

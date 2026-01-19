@@ -14,12 +14,12 @@ export default function InternLayout({ children }) {
   };
 
   const menuItems = [
-    { path: '/dashboard', icon: '🏠', label: 'Dashboard' },
-    { path: '/daily-logs', icon: '📝', label: 'Daily Logs' },
-    { path: '/tasks', icon: '✅', label: 'My Tasks' },
-    { path: '/bugs', icon: '🐛', label: 'Bug Reports' },
-    { path: '/meetings', icon: '📅', label: 'Meetings' },
-    { path: '/profile', icon: '👤', label: 'Profile' },
+    { path: '/dashboard', icon: '▣', label: 'Dashboard' },
+    { path: '/daily-logs', icon: '⚏', label: 'Daily Logs' },
+    { path: '/tasks', icon: '☑', label: 'My Tasks' },
+    { path: '/bugs', icon: '⚠', label: 'Bug Reports' },
+    { path: '/meetings', icon: '◷', label: 'Meetings' },
+    { path: '/profile', icon: '◉', label: 'Profile' },
   ];
 
   return (
@@ -33,7 +33,7 @@ export default function InternLayout({ children }) {
       />
 
       {/* Main Content */}
-      <main className={`transition-all duration-300 ${sidebarOpen ? 'ml-64' : 'ml-20'}`}>
+      <main className="ml-72">
         <div className="p-8">
           {children}
         </div>
